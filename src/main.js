@@ -272,3 +272,9 @@ const init = () => {
 };
 
 init();
+
+const popup = document.querySelector(`.film-details`);
+
+popup.style.display = `none`;
+
+
