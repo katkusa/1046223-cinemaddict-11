@@ -6,6 +6,10 @@ const Place = {
   AFTERBEGIN: `afterbegin`,
   BEFOREEND: `beforeend`
 };
+const ExtraFilmTitle = {
+  TOP_RATED: `Top rated`,
+  TOP_COMMENTED: `Most commented`
+};
 
 const siteHeader = document.querySelector(`.header`);
 const siteMain = document.querySelector(`.main`);
@@ -16,8 +20,7 @@ const createProfile = () => (
   `<section class="header__profile profile">
   <p class="profile__rating">Movie Buff</p>
   <img class="profile__avatar" src="images/bitmap@2x.png" alt="Avatar" width="35" height="35">
-</section>`
-);
+</section>`);
 
 const createNavigation = () => (
   `<nav class="main-navigation">
@@ -28,16 +31,14 @@ const createNavigation = () => (
     <a href="#favorites" class="main-navigation__item">Favorites <span class="main-navigation__item-count">8</span></a>
   </div>
   <a href="#stats" class="main-navigation__additional">Stats</a>
-</nav>`
-);
+</nav>`);
 
 const createFilter = () => (
   `<ul class="sort">
   <li><a href="#" class="sort__button sort__button--active">Sort by default</a></li>
   <li><a href="#" class="sort__button">Sort by date</a></li>
   <li><a href="#" class="sort__button">Sort by rating</a></li>
-</ul>`
-);
+</ul>`);
 
 const createFilmsList = () => (
   `<section class="films">
@@ -45,15 +46,13 @@ const createFilmsList = () => (
     <h2 class="films-list__title visually-hidden">All movies. Upcoming</h2>
     <div class="films-list__container"></div>
   </section>
-</section>`
-);
+</section>`);
 
 const createFilmsListExtra = (title) => (
   `<section class="films-list--extra">
   <h2 class="films-list__title">${title}</h2>
   <div class="films-list__container"></div>
-</section>`
-);
+</section>`);
 
 const createFilmCard = () => (
   `<article class="film-card">
@@ -72,16 +71,11 @@ const createFilmCard = () => (
     <button class="film-card__controls-item button film-card__controls-item--mark-as-watched">Mark as watched</button>
     <button class="film-card__controls-item button film-card__controls-item--favorite">Mark as favorite</button>
   </form>
-</article>`
-);
+</article>`);
 
-const createShowMoreBtn = () => (
-  `<button class="films-list__show-more">Show more</button>`
-);
+const createShowMoreBtn = () => (`<button class="films-list__show-more">Show more</button>`);
 
-const createStatistics = () => (
-  `<p>130 291 movies inside</p>`
-);
+const createStatistics = () => (`<p>130 291 movies inside</p>`);
 
 const createFilmDetails = () => (
   `<section class="film-details">
@@ -236,8 +230,7 @@ const createFilmDetails = () => (
       </section>
     </div>
   </form>
-</section>`
-);
+</section>`);
 
 const render = (container, template, place) => container.insertAdjacentHTML(place, template);
 
@@ -258,8 +251,8 @@ const init = () => {
 
   renderFilmCards(filmsListContainer, FILM_COUNT);
   render(filmsListContainer, createShowMoreBtn(), Place.AFTERBEGIN);
-  render(filmsContainer, createFilmsListExtra(`Top rated`), Place.BEFOREEND);
-  render(filmsContainer, createFilmsListExtra(`Most commented`), Place.BEFOREEND);
+  render(filmsContainer, createFilmsListExtra(ExtraFilmTitle.TOP_RATED), Place.BEFOREEND);
+  render(filmsContainer, createFilmsListExtra(ExtraFilmTitle.TOP_COMMENTED), Place.BEFOREEND);
 
   const filmsExtraLists = filmsContainer.querySelectorAll(`.films-list--extra .films-list__container`);
 
@@ -272,9 +265,3 @@ const init = () => {
 };
 
 init();
-
-const popup = document.querySelector(`.film-details`);
-
-popup.style.display = `none`;
-
-
