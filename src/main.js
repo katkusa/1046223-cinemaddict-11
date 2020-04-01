@@ -10,7 +10,7 @@ const Place = {
 const siteHeader = document.querySelector(`.header`);
 const siteMain = document.querySelector(`.main`);
 const siteFooter = document.querySelector(`.footer`);
-const siteFooterStat =siteFooter.querySelector(`.footer__statistics`)
+const siteFooterStat = siteFooter.querySelector(`.footer__statistics`);
 
 const createProfile = () => (
   `<section class="header__profile profile">
