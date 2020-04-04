@@ -1,4 +1,7 @@
-export const createFilmCard = () => (
+import {Place} from "./consts";
+import {render} from "./utils";
+
+const createFilmCard = () => (
   `<article class="film-card">
     <h3 class="film-card__title">The Dance of Life</h3>
     <p class="film-card__rating">8.3</p>
@@ -15,4 +18,11 @@ export const createFilmCard = () => (
       <button class="film-card__controls-item button film-card__controls-item--mark-as-watched">Mark as watched</button>
       <button class="film-card__controls-item button film-card__controls-item--favorite">Mark as favorite</button>
     </form>
-  </article>`);
+  </article>`
+);
+
+export const renderFilmCards = (container, count) => {
+  for (let i = 0; i < count; i++) {
+    render(container, createFilmCard(), Place.BEFOREEND);
+  }
+};

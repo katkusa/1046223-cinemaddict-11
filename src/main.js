@@ -6,7 +6,8 @@ import {createFilmsList} from "./components/films-list";
 import {createFilmsListExtra} from "./components/films-list-extra";
 import {createShowMoreBtn} from "./components/show-more-btn";
 import {createStatistics} from "./components/statistics";
-import {render, renderFilmCards} from "./components/utils";
+import {renderFilmCards} from "./components/film-card";
+import {render} from "./components/utils";
 import {Place, ExtraFilmTitle, FILM_COUNT, FILM_EXTRA_COUNT} from "./components/consts";
 
 const siteHeader = document.querySelector(`.header`);
